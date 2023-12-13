@@ -16,12 +16,20 @@ export function Login() {
     e.preventDefault();
     setError("");
     try {
-      await login(user.email, user.password);
-      navigate("/");
-    } catch (error) {
-      setError(error.message);
+    await login(user.email, user.password);
+    
+    // Aquí puedes agregar lógica para redirigir a diferentes rutas según el correo electrónico
+    if (user.email === "basquet@thisnight.com") {
+      navigate("/basquet");
+    } else if (user.email === "flappy@thisnight.com") {
+      navigate("/flappy");
+    } else {
+      navigate("/home");
     }
-  };
+  } catch (error) {
+    setError(error.message);
+  }
+};
 
   const handleChange = ({ target: { value, name } }) =>
     setUser({ ...user, [name]: value });
