@@ -18,7 +18,6 @@ export function Login() {
     try {
     await login(user.email, user.password);
     
-    // Aquí puedes agregar lógica para redirigir a diferentes rutas según el correo electrónico
     if (user.email === "basquet@thisnight.com") {
       navigate("/basquet");
     } else if (user.email === "flappy@thisnight.com") {
@@ -59,7 +58,7 @@ export function Login() {
               id="email"
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-black"
-              placeholder="youremail@company.tld"
+              placeholder="mail"
             />
           </div>
           <div className="mb-4">
@@ -75,7 +74,7 @@ export function Login() {
               id="password"
               onChange={handleChange}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-black"
-              placeholder="*************"
+              placeholder="contraseña"
             />
           </div>
 
