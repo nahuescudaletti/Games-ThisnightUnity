@@ -22,6 +22,8 @@ export function Login() {
       navigate("/basquet");
     } else if (user.email === "flappy@thisnight.com") {
       navigate("/flappy");
+    } else if (user.email === "admin@thisnight.com") {
+      navigate("/admin");
     } else {
       navigate("/home");
     }

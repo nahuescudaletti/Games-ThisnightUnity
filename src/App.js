@@ -6,6 +6,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./components/Home";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -26,6 +27,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Basquet/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin/>
               </ProtectedRoute>
             }
           />
