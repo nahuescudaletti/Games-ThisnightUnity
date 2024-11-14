@@ -16,21 +16,13 @@ export function Login() {
     e.preventDefault();
     setError("");
     try {
-    await login(user.email, user.password);
-    
-    if (user.email === "basquet@thisnight.com") {
-      navigate("/basquet");
-    } else if (user.email === "flappy@thisnight.com") {
-      navigate("/flappy");
-    } else if (user.email === "admin@thisnight.com") {
-      navigate("/admin");
-    } else {
-      navigate("/home");
+      await login(user.email, user.password);
+      // Redirige a todos los usuarios autenticados a /inicio
+      navigate("/inicio");
+    } catch (error) {
+      setError(error.message);
     }
-  } catch (error) {
-    setError(error.message);
-  }
-};
+  };
 
   const handleChange = ({ target: { value, name } }) =>
     setUser({ ...user, [name]: value });
@@ -48,10 +40,7 @@ export function Login() {
           className="bg-black bg-opacity-60 shadow-md rounded px-8 pt-6 pb-8 mb-4 text-white"
         >
           <div className="mb-4">
-            <label
-              htmlFor="email"
-              className=""
-            >
+            <label htmlFor="email" className="">
               Email
             </label>
             <input

@@ -6,8 +6,9 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./components/Home";
-import Admin from "./components/Admin";
-
+import { Flappy } from "./components/Flappy";
+import { Tower } from "./components/Tower";
+import { Inicio } from "./components/inicio";
 function App() {
   return (
     <div>
@@ -22,7 +23,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-           <Route
+          <Route
             path="/basquet"
             element={
               <ProtectedRoute>
@@ -31,18 +32,35 @@ function App() {
             }
           />
           <Route
-            path="/admin"
+            path="/flappy"
             element={
               <ProtectedRoute>
-                <Admin/>
+                <Flappy/>
               </ProtectedRoute>
             }
           />
-           <Route
+          <Route
+            path="/tower"
+            element={
+              <ProtectedRoute>
+                <Tower/>
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/"
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+          {/* Nueva ruta para 'Inicio' */}
+          <Route
+            path="/inicio"
+            element={
+              <ProtectedRoute>
+                <Inicio />
               </ProtectedRoute>
             }
           />
